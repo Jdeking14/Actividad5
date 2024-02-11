@@ -1,0 +1,45 @@
+<div>
+    <div>
+        <article class="formulario">
+            <div class="mb-20">
+              <label class="form-label" for="title">Introduce el titulo del post</label>
+              <input class="form-control" type="text" placeholder="introduce titulo" id="title" [(ngModel)]="newPost.title">
+            </div>
+            <div class="mb-20">
+              <label class="form-label" for="imageFile">Selecciona una imagen</label>
+              <input class="form-control" type="file" id="imageFile" accept="image/*" (change)="displayImageURL($event)">
+            </div>
+            <div class="mb-20">
+              <label class="form-label" for="date">Introduce la fecha</label>
+              <input class="form-control" type="date" placeholder="introduce una fecha" id="date" [(ngModel)]="newPost.date">
+            </div>
+            <div class="mb-20">
+              <label class="form-label" for="body">Cuerpo de la noticia</label>
+              <textarea id="body" class="form-control" cols="30" rows="10" [(ngModel)]="newPost.body"></textarea>
+            </div>
+          
+            <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+          </article>
+    </div>
+    <h2>Lista de posts</h2>
+<hr>
+<section>
+  <article *ngFor="let post of arrPosts">
+    <div class="card">
+      <img [src]="post.image" class="card-img-top" [alt]="post.title">
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.body}}</p>
+        <small class="text-muted">{{post.date}}</small>
+      </div>
+    </div>
+  </article>
+</section>
+</div>
+
+
+
+
+
+
+
